@@ -20,7 +20,7 @@ LLM-Security-Gateway/
 │
 ├── logs/                     # System runtime logs
 │
-├── policy_engine/            # Decision-making and policy enforcement
+├── policy_engine/            # Decision-making & policy enforcement
 │   └── (allow/block logic)
 │
 ├── presidio_module/          # PII detection using Presidio
@@ -30,18 +30,14 @@ LLM-Security-Gateway/
 ├── main                      # Main entry point of the system
 ├── README                    # Project documentation
 └── requirements              # Python dependencies
+
 ⚙️ Installation & Setup
-
-Clone the repository:
-
+1️⃣ Clone the repository
 git clone https://github.com/Khadija15567/LLM-Security-Gateway.git
 cd LLM-Security-Gateway
-
-Create a Python virtual environment:
-
+2️⃣ Create a Python virtual environment
 python -m venv venv
-
-Activate the virtual environment:
+3️⃣ Activate the virtual environment
 
 Windows:
 
@@ -50,13 +46,9 @@ venv\Scripts\activate
 Mac/Linux:
 
 source venv/bin/activate
-
-Install dependencies:
-
+4️⃣ Install dependencies
 pip install -r requirements
-
-Install additional required packages for PII detection:
-
+5️⃣ Install additional packages for PII detection
 pip install presidio-analyzer
 pip install presidio-anonymizer
 python -m spacy download en_core_web_lg
@@ -72,23 +64,23 @@ python -c "from config.settings import *; print('Installation successful!')"
 If you see Installation successful!, your environment is ready.
 
 📊 Running Evaluations
+1️⃣ Prepare test input files
 
-Prepare test input files:
-Place test prompts in evaluation/. Example:
+Place your test prompts in evaluation/. Example files:
 
 evaluation/test_prompts.txt
 
 evaluation/expected_results.json
 
-Run the evaluation script:
-
+2️⃣ Run the evaluation script
 python evaluation/test_cases.py --threshold 0.7
 
 --threshold sets detection sensitivity (0.0–1.0)
 
 Uses config/settings.py for all parameters
 
-View results:
+3️⃣ View results
+
 Generated files will appear in evaluation/:
 
 injection_results.csv → Detected injections with confidence scores
@@ -138,7 +130,7 @@ Issue	Solution
 Module not found	Run pip install -r requirements and python -c "from config.settings import *"
 No evaluation results	Verify test input files exist in evaluation/ and have correct permissions
 Wrong detection threshold	Adjust value in config/settings.py or use --threshold flag when running tests
-PII detection fails	Ensure presidio-analyzer, presidio-anonymizer, and spacy model en_core_web_lg are installed
+PII detection fails	Ensure presidio-analyzer, presidio-anonymizer, and SpaCy model en_core_web_lg are installed
 ⭐ Viva/Assignment Statement
 
 “The LLM Security Gateway is modular and fully reproducible. By following the setup instructions, users can run injection detection, PII analysis, and policy enforcement in a structured manner. Folder separation ensures maintainability and clarity of workflow.”
